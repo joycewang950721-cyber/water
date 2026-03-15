@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drink Tracker</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        if("serviceWorker" in navigator){
+            navigator.serviceWorker.register("service-work.js")
+        }
+    </script>
+
+    <h1>今日喝水紀錄</h1>
+    <h2 id="date"></h2>
+    <h3 id="streak">連續達成0天</h3>
+
+    <div class="progress-box">
+        <div id="progress-bar"></div>
+    </div>
+
+    <h2 id="total">0 ml</h2>
+    <h2 id="drinkPercent">今日已喝了0%</h2>
+
+    <input type="number" id="amount" placeholder="輸入 ml">
+
+    <select id="drink">
+        <option value="1">水</option>
+        <option value="1">氣泡水</option>
+        <option value="0.9">茶</option>
+        <option value="0.8">咖啡</option>
+        <option value="0.75">拿鐵</option>
+        <option value="0.85">牛奶</option>
+        <option value="0.8">果汁</option>
+        <option value="0.85">蔬果汁</option>
+        <option value="0.9">運動飲料</option>
+        <option value="0.85">氣泡飲料</option>
+        <option value="0.7">奶茶</option>
+        <option value="0.65">珍珠奶茶</option>
+        <option value="0.6">星冰樂</option>
+    </select>
+
+    <button onclick="addDrink()">新增</button>
+    <button onclick="restToday()">清空今天</button>
+
+    <ul id="list"></ul>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
