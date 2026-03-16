@@ -90,6 +90,7 @@ function addDrink(){
 
     list.push(item)
 
+    localStorage.setItem("total", total)
     render()
     save()
     }
