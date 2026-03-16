@@ -1,11 +1,11 @@
 let goal = 2000
-let total 
+let total = 0
 let list=[]
 let streakDays = Number(localStorage.getItem("streakDays"))||0
 
 let lastCompleteDate = localStorage.getItem("lastCompleteDate")
 
-function undateStreak(){
+function updateStreak(){
     document.getElementById("streak").innerText = "連續達成" + streakDays +"天"
 }
 
@@ -44,7 +44,12 @@ function save(){
 
 function load(){
     const saved = localStorage.getItem("drinkData")
-    if(!saved) return
+    if(!saved){
+        total=0
+        list=[]
+        render()
+        return
+    }
 
     let data = JSON.parse(saved)
 
@@ -134,7 +139,7 @@ function render(){
     else if(percent <=99 && percent>=50){
         document.getElementById("progress-bar").style.backgroundColor = "orange"
     }
-    else if(percent =100){
+    else if(percent ==100){
         document.getElementById("progress-bar").style.backgroundColor = "green"
     }
 
