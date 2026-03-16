@@ -1,5 +1,5 @@
 let goal = 2000
-let total = 0
+let total 
 let list=[]
 let streakDays = Number(localStorage.getItem("streakDays"))||0
 
